@@ -18,7 +18,6 @@ import (
 	"encoding/binary"
 	"errors"
 	"fmt"
-
 	ag_binary "github.com/gagliardetto/binary"
 	ag_solanago "github.com/gagliardetto/solana-go"
 	ag_format "github.com/gagliardetto/solana-go/text/format"
@@ -28,10 +27,10 @@ import (
 // Create a new account
 type CreateAccount struct {
 	// Number of lamports to transfer to the new account
-	Lamports *uint64
+	Lamports *ag_binary.Uint128
 
 	// Number of bytes of memory to allocate
-	Space *uint64
+	Space *ag_binary.Uint128
 
 	// Address of program that will own the new account
 	Owner *ag_solanago.PublicKey
@@ -53,13 +52,13 @@ func NewCreateAccountInstructionBuilder() *CreateAccount {
 }
 
 // Number of lamports to transfer to the new account
-func (inst *CreateAccount) SetLamports(lamports uint64) *CreateAccount {
+func (inst *CreateAccount) SetLamports(lamports ag_binary.Uint128) *CreateAccount {
 	inst.Lamports = &lamports
 	return inst
 }
 
 // Number of bytes of memory to allocate
-func (inst *CreateAccount) SetSpace(space uint64) *CreateAccount {
+func (inst *CreateAccount) SetSpace(space ag_binary.Uint128) *CreateAccount {
 	inst.Space = &space
 	return inst
 }
@@ -93,7 +92,7 @@ func (inst *CreateAccount) GetNewAccount() *ag_solanago.AccountMeta {
 func (inst CreateAccount) Build() *Instruction {
 	return &Instruction{BaseVariant: ag_binary.BaseVariant{
 		Impl:   inst,
-		TypeID: ag_binary.TypeIDFromUint32(Instruction_CreateAccount, binary.LittleEndian),
+		TypeID: ag_binary.TypeIDFromUint32(0, binary.LittleEndian),
 	}}
 }
 
@@ -207,8 +206,8 @@ func (inst *CreateAccount) UnmarshalWithDecoder(decoder *ag_binary.Decoder) erro
 // NewCreateAccountInstruction declares a new CreateAccount instruction with the provided parameters and accounts.
 func NewCreateAccountInstruction(
 	// Parameters:
-	lamports uint64,
-	space uint64,
+	lamports ag_binary.Uint128,
+	space ag_binary.Uint128,
 	owner ag_solanago.PublicKey,
 	// Accounts:
 	fundingAccount ag_solanago.PublicKey,
