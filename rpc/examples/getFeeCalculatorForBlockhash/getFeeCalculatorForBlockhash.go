@@ -17,8 +17,8 @@ package main
 import (
 	"context"
 
+	"github.com/Cotary/solana-go/rpc"
 	"github.com/davecgh/go-spew/spew"
-	"github.com/gagliardetto/solana-go/rpc"
 )
 
 func main() {

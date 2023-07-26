@@ -15,7 +15,7 @@
 package ws
 
 import (
-	"github.com/gagliardetto/solana-go"
+	"github.com/Cotary/solana-go"
 )
 
 type VoteResult struct {

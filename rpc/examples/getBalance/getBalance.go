@@ -19,9 +19,9 @@ import (
 	"fmt"
 	"math/big"
 
+	"github.com/Cotary/solana-go"
+	"github.com/Cotary/solana-go/rpc"
 	"github.com/davecgh/go-spew/spew"
-	"github.com/gagliardetto/solana-go"
-	"github.com/gagliardetto/solana-go/rpc"
 )
 
 func main() {

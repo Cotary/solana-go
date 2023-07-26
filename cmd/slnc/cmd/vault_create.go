@@ -21,10 +21,10 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/gagliardetto/solana-go"
+	"github.com/Cotary/solana-go"
 
-	"github.com/gagliardetto/solana-go/cli"
-	"github.com/gagliardetto/solana-go/vault"
+	"github.com/Cotary/solana-go/cli"
+	"github.com/Cotary/solana-go/vault"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )

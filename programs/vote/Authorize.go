@@ -15,7 +15,7 @@
 package vote
 
 import (
-	"github.com/gagliardetto/solana-go"
+	"github.com/Cotary/solana-go"
 )
 
 type Authorize struct {

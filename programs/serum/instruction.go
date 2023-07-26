@@ -21,9 +21,9 @@ import (
 	"encoding/binary"
 	"fmt"
 
+	"github.com/Cotary/solana-go"
+	"github.com/Cotary/solana-go/text"
 	bin "github.com/gagliardetto/binary"
-	"github.com/gagliardetto/solana-go"
-	"github.com/gagliardetto/solana-go/text"
 )
 
 func init() {
