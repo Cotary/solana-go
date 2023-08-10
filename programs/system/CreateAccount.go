@@ -30,7 +30,7 @@ type CreateAccount struct {
 	Lamports *ag_binary.Uint128
 
 	// Number of bytes of memory to allocate
-	Space *ag_binary.Uint128
+	Space *uint64
 
 	// Address of program that will own the new account
 	Owner *ag_solanago.PublicKey
@@ -58,7 +58,7 @@ func (inst *CreateAccount) SetLamports(lamports ag_binary.Uint128) *CreateAccoun
 }
 
 // Number of bytes of memory to allocate
-func (inst *CreateAccount) SetSpace(space ag_binary.Uint128) *CreateAccount {
+func (inst *CreateAccount) SetSpace(space uint64) *CreateAccount {
 	inst.Space = &space
 	return inst
 }
@@ -207,7 +207,7 @@ func (inst *CreateAccount) UnmarshalWithDecoder(decoder *ag_binary.Decoder) erro
 func NewCreateAccountInstruction(
 	// Parameters:
 	lamports ag_binary.Uint128,
-	space ag_binary.Uint128,
+	space uint64,
 	owner ag_solanago.PublicKey,
 	// Accounts:
 	fundingAccount ag_solanago.PublicKey,
